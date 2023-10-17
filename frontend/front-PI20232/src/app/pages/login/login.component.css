@@ -1,18 +1,23 @@
 .container{
   width: 100vw;
   height: 100vh;
-  background-color: aliceblue;
+  background-image: url("/assets/images/bg-car.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .content{
-  width: 300px;
+  width: 400px;
   height: 100vh;
   position: absolute;
-  left: 0;
-  top: 0;
   background-color: white;
 }
-.content>form{
+.titulo {
+  text-align: center;
+}
+
+.content>form {
   position: absolute;
   top: 30%;
   padding: 30px;
 }
+
