@@ -1,10 +1,20 @@
 .container{
   width: 100vw;
   height: 100vh;
+}
+
+.bg {
+  content: "";
   background-image: url("/assets/images/bg-car.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh !important;
+  position: absolute;
+  left: 400px;
+  top: 0;
+  width: calc(100vw - 400px);
 }
+
 .content{
   width: 400px;
   height: 100vh;
@@ -19,5 +29,11 @@
   position: absolute;
   top: 30%;
   padding: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .content{
+    width: 100vw;
+  }
 }
 
