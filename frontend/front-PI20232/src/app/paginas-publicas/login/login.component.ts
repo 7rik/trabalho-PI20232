@@ -31,9 +31,17 @@ export class LoginComponent {
   }
 
   public onSubmit(){
-    console.log(this.authForm.get('password')?.errors)
-    if(this.authForm.valid) {
+    if(this.authForm.value['username'] == 'admin' && this.authForm.value['password'] == 'admin'){
+      const user = {
+        id: 1,
+        name: "Antonio Marcos",
+        rules: "ADMIN",
+      }
+      window.localStorage.setItem("user", JSON.stringify(user));
       this.router.navigate(['/login']);
+      console.log("Autenticado")
+    }else{
+      console.error("não pode autenticar")
     }
   }
 }

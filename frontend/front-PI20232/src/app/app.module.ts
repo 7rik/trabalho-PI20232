@@ -4,18 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from './paginas-publicas/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { RegistroComponent } from './paginas-publicas/registro/registro.component';
+import { PainelDeCarrosComponent } from './paginas-publicas/painel-de-carros/painel-de-carros.component';
+import { RecuperarSenhaComponent } from './paginas-publicas/recuperar-senha/recuperar-senha.component';
+import { MaterialModule } from 'src/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegistroComponent,
+    PainelDeCarrosComponent,
+    RecuperarSenhaComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,10 +29,9 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    CommonModule,
+    ToastrModule.forRoot(),
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
