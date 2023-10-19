@@ -1,0 +1,14 @@
+.mat-mdc-card {
+  display: flex;
+  margin-top: 5rem;
+  position: relative;
+  width: 600px;
+  justify-content: space-around;
+}
+
+.mat-mdc-card-image {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+

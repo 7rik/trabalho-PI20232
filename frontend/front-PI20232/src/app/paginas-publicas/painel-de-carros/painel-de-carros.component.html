@@ -1,1 +1,23 @@
-<p>painel-de-carros works!</p>
+<mat-toolbar color="primary" class="mat-elevation-z7 flex justify-between">
+  <span><mat-icon>directions_car</mat-icon>RentCar-DevWeb</span>
+  <div class="flex gap-1">
+    <a mat-button routerLink="/login">Entrar</a>
+    <a mat-raised-button routerLink="/registro" color="accent">Registrar-se</a>
+  </div>
+</mat-toolbar>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Ford Ranger</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="/assets/images/ford_ranger.png" alt="Ford Ranger">
+  <mat-card-content>
+    <p>
+     Ford Ranger é um carro completo para quem busca força e aventura.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>

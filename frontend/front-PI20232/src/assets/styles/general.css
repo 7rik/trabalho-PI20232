@@ -5,3 +5,19 @@
 .mt-12 {
   margin-top: 12px;
 }
+
+.flex{
+  display: flex;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.espaco {
+  flex: 1 1 auto;
+}
+
+.gap-1{
+  gap: 1rem;
+}
