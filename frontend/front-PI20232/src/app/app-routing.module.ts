@@ -6,16 +6,16 @@ import { PainelDeCarrosComponent } from './paginas-publicas/painel-de-carros/pai
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'painel-de-carros', pathMatch: 'full'
+    path: '', redirectTo: 'painel-de-carros', pathMatch: 'full', title: 'Painel de Carros'
   },
   {
-    path: 'painel-de-carros', component: PainelDeCarrosComponent
+    path: 'painel-de-carros', component: PainelDeCarrosComponent, title: 'Painel de Carros'
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login', component: LoginComponent, title: 'Login'
   },
   {
-    path: 'registro', component: RegistroComponent
+    path: 'registro', component: RegistroComponent, title: 'Registro'
   }
 ];
 
