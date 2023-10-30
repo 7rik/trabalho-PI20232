@@ -17,19 +17,6 @@ export class LoginComponent {
     this.authForm = this.builderForm();
   }
 
-  private builderForm(): FormGroup {
-    return this.fb.group ({
-      username: new FormControl({value: '', disabled: false}, Validators.compose ([
-        Validators.required,
-        Validators.pattern(/(.|\s)*\S(.|\s)*/)
-      ])),
-      password: new FormControl({value: '', disabled: false}, Validators.compose([
-        Validators.required,
-        Validators.minLength(4),
-      ]))
-    })
-  }
-
   public onSubmit(){
     if(this.authForm.value['username'] == 'admin' && this.authForm.value['password'] == 'admin'){
       const user = {
@@ -43,5 +30,18 @@ export class LoginComponent {
     }else{
       console.error("não pode autenticar")
     }
+  }
+
+  private builderForm(): FormGroup {
+    return this.fb.group ({
+      username: new FormControl({value: '', disabled: false}, Validators.compose ([
+        Validators.required,
+        Validators.pattern(/(.|\s)*\S(.|\s)*/)
+      ])),
+      password: new FormControl({value: '', disabled: false}, Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+      ]))
+    })
   }
 }
