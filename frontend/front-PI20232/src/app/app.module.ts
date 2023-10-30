@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './paginas-publicas/login/login.component';
+import { LoginComponent } from './pages/paginas-publicas/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { RegistroComponent } from './paginas-publicas/registro/registro.component';
-import { PainelDeCarrosComponent } from './paginas-publicas/painel-de-carros/painel-de-carros.component';
-import { RecuperarSenhaComponent } from './paginas-publicas/recuperar-senha/recuperar-senha.component';
+import { RegistroComponent } from './pages/paginas-publicas/registro/registro.component';
+import { PainelDeCarrosComponent } from './pages/paginas-publicas/painel-de-carros/painel-de-carros.component';
+import { RecuperarSenhaComponent } from './pages/paginas-publicas/recuperar-senha/recuperar-senha.component';
 import { MaterialModule } from 'src/material.module';
 import { HttpClientModule } from '@angular/common/http';
 

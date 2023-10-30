@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './paginas-publicas/login/login.component';
-import { RegistroComponent } from './paginas-publicas/registro/registro.component';
-import { PainelDeCarrosComponent } from './paginas-publicas/painel-de-carros/painel-de-carros.component';
+import { LoginComponent } from './pages/paginas-publicas/login/login.component';
+import { RegistroComponent } from './pages/paginas-publicas/registro/registro.component';
+import { PainelDeCarrosComponent } from './pages/paginas-publicas/painel-de-carros/painel-de-carros.component';
 
 const routes: Routes = [
   {

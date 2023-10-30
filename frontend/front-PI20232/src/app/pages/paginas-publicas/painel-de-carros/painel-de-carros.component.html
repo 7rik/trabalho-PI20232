@@ -19,29 +19,29 @@
       </mat-card-header>
       <div class="imagens">
         <img class="carros__imagens" [src]="carro.foto" alt="Ford Ranger">
-        <div class="description-rover">
+        <div class="description-rover flex-wrap justify-around" >
           <div class="description-rover__item">
-            <mat-icon>directions_car</mat-icon>
-            <span>{{carro.info.ano}}</span>
+            <mat-icon>calendar_today</mat-icon>
+            <span class="w-100">{{carro.info.ano}}</span>
           </div>
           <div class="description-rover__item">
             <mat-icon>directions_car</mat-icon>
             <span>{{carro.info.quilometragem}} km</span>
           </div>
           <div class="description-rover__item">
-            <mat-icon>directions_car</mat-icon>
+            <mat-icon>local_gas_station</mat-icon>
             <span>{{carro.info.tipoCombustivel}}</span>
           </div>
           <div class="description-rover__item">
-            <mat-icon>directions_car</mat-icon>
+            <mat-icon>device_hub</mat-icon>
             <span>{{carro.info.cambio}}</span>
           </div>
           <div class="description-rover__item">
-            <mat-icon>directions_car</mat-icon>
-            <span>{{carro.info.portas}} portas</span>
+            <mat-icon>people</mat-icon>
+            <span>{{carro.info.lugares}} lugares</span>
           </div>
           <div class="description-rover__item">
-            <mat-icon>directions_car</mat-icon>
+            <mat-icon>format_paint</mat-icon>
             <span>{{carro.info.cor}}</span>
           </div>
         </div>

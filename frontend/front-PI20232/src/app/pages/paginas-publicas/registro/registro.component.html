@@ -1,0 +1,40 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <form (submit)="registrar()" [formGroup]="formRegistro" class="form__registro">
+
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="Nome completo" formControlName="nomeDoUsuario">
+          <mat-error *ngIf="formRegistro.get('nomeDoUsuario')?.errors?.['required']">
+            Nome é obrigatório.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="email" placeholder="Email" formControlName="emailDoUsuario">
+          <mat-error *ngIf="formRegistro.get('emailDoUsuario')?.errors?.['required']">
+            Email é obrigatório.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="password" placeholder="Senha" formControlName="senhaDoUsuario">
+          <mat-error *ngIf="formRegistro.get('senhaDoUsuario')?.errors?.['required']">
+            Senha é obrigatória.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="password" placeholder="Confirmar senha" formControlName="confirmarSenhaDoUsuario">
+          <mat-error *ngIf="formRegistro.get('confirmarSenhaDoUsuario')?.errors?.['required']">
+            Confirmação de senha é obrigatória.
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button routerLink="painel-de-carros" color="primary"
+          [disabled]="!formRegistro.valid">Registrar</button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
