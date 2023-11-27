@@ -41,11 +41,16 @@ export class RegistroComponent implements OnDestroy {
 
   private builderForm(): FormGroup {
     return this.fb.group({
-      nomeDoUsuario:  new FormControl({value: '',   disabled: false},         Validators.required),
-      emailDoUsuario: new FormControl({value: '',   disabled: false},         Validators.required),
-      senhaDoUsuario: new FormControl({value: '',   disabled: false},         Validators.required),
-      confirmarSenhaDoUsuario:
+      login:  new FormControl({value: '',   disabled: false},         Validators.required),
+      nome: new FormControl({value: '',   disabled: false},         Validators.required),
+      senha: new FormControl({value: '',   disabled: false},         Validators.required),
+      confirmarSenha:
                       new FormControl({value: '',   disabled: false},         Validators.required),
+      dataDeNascimento: new FormControl({value: '',   disabled: false},         Validators.required),
+      ativo: new FormControl({value: true, disabled: false}),
+      isAdmin: new FormControl({value: false, disabled: false}),
+      dataDeCadastro: new FormControl({value: new Date,   disabled: false},        Validators.required),
+
      })
   }
 
