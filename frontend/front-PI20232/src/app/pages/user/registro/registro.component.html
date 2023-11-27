@@ -4,30 +4,37 @@
       <form (submit)="registrar()" [formGroup]="formRegistro" class="form__registro">
 
         <mat-form-field appearance="outline">
-          <input matInput placeholder="Nome completo" formControlName="nomeDoUsuario">
-          <mat-error *ngIf="formRegistro.get('nomeDoUsuario')?.errors?.['required']">
+          <input matInput placeholder="Nome completo" formControlName="nome">
+          <mat-error *ngIf="formRegistro.get('nome')?.errors?.['required']">
             Nome é obrigatório.
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <input matInput type="email" placeholder="Email" formControlName="emailDoUsuario">
-          <mat-error *ngIf="formRegistro.get('emailDoUsuario')?.errors?.['required']">
-            Email é obrigatório.
+          <input matInput type="email" placeholder="Login" formControlName="login">
+          <mat-error *ngIf="formRegistro.get('login')?.errors?.['required']">
+            Login é obrigatório.
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <input matInput type="password" placeholder="Senha" formControlName="senhaDoUsuario">
-          <mat-error *ngIf="formRegistro.get('senhaDoUsuario')?.errors?.['required']">
+          <input matInput type="password" placeholder="Senha" formControlName="senha">
+          <mat-error *ngIf="formRegistro.get('senha')?.errors?.['required']">
             Senha é obrigatória.
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <input matInput type="password" placeholder="Confirmar senha" formControlName="confirmarSenhaDoUsuario">
-          <mat-error *ngIf="formRegistro.get('confirmarSenhaDoUsuario')?.errors?.['required']">
+          <input matInput type="password" placeholder="Confirmar senha" formControlName="confirmarSenha">
+          <mat-error *ngIf="formRegistro.get('confirmarSenha')?.errors?.['required']">
             Confirmação de senha é obrigatória.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="date" placeholder="Data de Nascimento (dd/MM/yyy)" formControlName="dataDeNascimento">
+          <mat-error *ngIf="formRegistro.get('dataDeNascimento')?.errors?.['required']">
+            Data de Nscimento é obrigatória.
           </mat-error>
         </mat-form-field>
 

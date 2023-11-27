@@ -4,8 +4,8 @@
       <h1 class="titulo">Login</h1>
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>Usuário</mat-label>
-        <input matInput placeholder="Usuario" formControlName="username">
-        <mat-error *ngIf="authForm.get('username')?.errors?.['required'] &&
+        <input matInput placeholder="Login" formControlName="login">
+        <mat-error *ngIf="authForm.get('login')?.errors?.['required'] &&
           authForm.get('username')?.touched">
           Nome de usuário é obrigatório!
         </mat-error >
