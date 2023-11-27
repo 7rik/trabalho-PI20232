@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserModel } from 'src/app/models/interfaces/user/user.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-painel-de-carros',
@@ -248,6 +250,7 @@ export class PainelDeCarrosComponent {
     },
   ];
 
+  public users: any = [];
   public tipos = [
     {nome: 'Hatch', id: 1},
     {nome: 'Picape', id: 2},
@@ -257,9 +260,31 @@ export class PainelDeCarrosComponent {
 
   public isLogged = false;
 
-  constructor() {
+  constructor(
+    private _user: UserService,
+  ) {
     this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
+    this.getUsers();
+  }
 
+  gerarRelatorio() {
+    let relatorio: any = '';
+
+    this.users.forEach((user: UserModel) => {
+      relatorio += user.id + ',' + user.nome + ',' + user.login + ',' + user.senha + '\n';
+    });
+
+    const blob = new Blob([relatorio], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    window.open(url);
+  }
+
+  private getUsers() {
+    this._user.getUsers().subscribe({
+      next: (response: any) => {
+          this.users = response;
+      }
+    });
   }
 
   public filtro(tipoId: number) {

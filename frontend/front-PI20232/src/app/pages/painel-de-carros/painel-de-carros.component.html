@@ -11,6 +11,7 @@
     <mat-chip-option *ngFor="let tipo of tipos" (click)="filtro(tipo.id)">{{tipo.nome}}</mat-chip-option>
   </mat-chip-listbox>
 
+  <button mat-raised-button (click)="gerarRelatorio()">Baixar relatório</button>
   <div class="cards gap-1">
     <mat-card class="carros__card" *ngFor="let carro of carrosSemInteressados">
       <mat-card-header class="justify-between flex">

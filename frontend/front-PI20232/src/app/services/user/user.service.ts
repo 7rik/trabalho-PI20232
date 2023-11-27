@@ -23,6 +23,12 @@ export class UserService {
 
   public authUser(requestDatas: AuthRequest): Observable<UserModel> {
     return this.http.get<UserModel>
-    (`${this.API_URL}/users?username=${requestDatas.username}`);
+    (`${this.API_URL}/users?login=${requestDatas.login}`);
   }
+
+  public getUsers(): Observable<UserModel[]> {
+    return this.http.get<UserModel[]>(`${this.API_URL}/users`);
+  }
+
+  
 }
