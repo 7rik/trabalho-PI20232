@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/paginas-publicas/login/login.component';
-import { RegistroComponent } from './pages/paginas-publicas/registro/registro.component';
-import { PainelDeCarrosComponent } from './pages/paginas-publicas/painel-de-carros/painel-de-carros.component';
+import { PainelDeCarrosComponent } from './pages/painel-de-carros/painel-de-carros.component';
+
 
 const routes: Routes = [
   {
@@ -12,10 +11,8 @@ const routes: Routes = [
     path: 'painel-de-carros', component: PainelDeCarrosComponent, title: 'Painel de Carros'
   },
   {
-    path: 'login', component: LoginComponent, title: 'Login'
-  },
-  {
-    path: 'registro', component: RegistroComponent, title: 'Registro'
+    path: 'user',
+    loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
   }
 ];
 

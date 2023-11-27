@@ -16,13 +16,13 @@
         <mat-error *ngIf="authForm.get('password')?.errors?.['required'] &&
           authForm.get('password')?.touched">
           Senha é obrigatória!
-        </mat-error >
+        </mat-error>
         <mat-error *ngIf="authForm.get('password')?.errors?.['minlength'] &&
           authForm.get('password')?.touched">
           Senha deve ter no mínimo 4 caracteres!
-        </mat-error >
+        </mat-error>
       </mat-form-field>
-        <button mat-raised-button routerLink="/painel-de-carros" color="primary"
+        <button mat-raised-button (click)="onSubmit()" color="primary"
           class="mt-12 w-100" [disabled]="!authForm.valid">Autenticar</button>
     </form>
   </div>
