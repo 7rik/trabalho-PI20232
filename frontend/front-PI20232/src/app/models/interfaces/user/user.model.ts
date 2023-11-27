@@ -1,6 +1,8 @@
 export interface UserModel {
   id: number | string;
-  nome: string;
-  email: string;
+  login: string;
   senha: string;
+  nome: string;
+  ativo: boolean;
+  isAdmin: boolean;
 }
