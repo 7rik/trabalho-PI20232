@@ -43,7 +43,7 @@ export class LoginComponent implements OnDestroy {
 
   private builderForm(): FormGroup {
     return this.fb.group ({
-      username: new FormControl({value: '', disabled: false}, Validators.compose ([
+      login: new FormControl({value: '', disabled: false}, Validators.compose ([
         Validators.required,
         Validators.pattern(/(.|\s)*\S(.|\s)*/)
       ])),
