@@ -31,7 +31,7 @@
           </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button routerLink="painel-de-carros" color="primary"
+        <button mat-raised-button (submit)="registrar()" color="primary"
           [disabled]="!formRegistro.valid">Registrar</button>
 
       </form>

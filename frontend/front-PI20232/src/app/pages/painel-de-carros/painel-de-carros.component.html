@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="w-100 flex justify-between">
   <span><mat-icon>directions_car</mat-icon>HireCarPlus</span>
-  <div class="flex gap-1">
-    <a mat-button routerLink="/login">Entrar</a>
-    <a mat-raised-button routerLink="/registro" color="accent">Registrar-se</a>
+  <div class="flex gap-1" *ngIf="!isLogged; else loggedButtons">
+    <a mat-button routerLink="/user/login">Entrar</a>
+    <a mat-raised-button routerLink="/user/registro" color="accent">Registrar-se</a>
   </div>
 </mat-toolbar>
 <div class="principal">
@@ -22,7 +22,7 @@
         <div class="description-rover flex-wrap justify-around" >
           <div class="description-rover__item">
             <mat-icon>calendar_today</mat-icon>
-            <span class="w-100">{{carro.info.ano}}</span>
+            <span>{{carro.info.ano}}</span>
           </div>
           <div class="description-rover__item">
             <mat-icon>directions_car</mat-icon>
@@ -65,3 +65,8 @@
     </mat-card>
   </div>
 </div>
+
+<ng-template #loggedButtons>
+  <a mat-button routerLink="/user/perfil">Perfil</a>
+  <a mat-button routerLink="/user/logout">Sair</a>
+</ng-template>

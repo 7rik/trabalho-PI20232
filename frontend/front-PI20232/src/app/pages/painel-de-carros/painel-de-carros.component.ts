@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-painel-de-carros',
@@ -248,13 +249,17 @@ export class PainelDeCarrosComponent {
   ];
 
   public tipos = [
-    {nome: 'Popular', id: 1},
+    {nome: 'Hatch', id: 1},
     {nome: 'Picape', id: 2},
     {nome: 'Suv', id: 3},
     {nome: 'Sedan', id: 4},
   ]
-  constructor( ) {
+
+  public isLogged = false;
+
+  constructor() {
     this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
+
   }
 
   public filtro(tipoId: number) {
