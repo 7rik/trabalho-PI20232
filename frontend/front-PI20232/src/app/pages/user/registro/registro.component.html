@@ -24,16 +24,16 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <!-- <mat-form-field appearance="outline">
           <input matInput type="password" placeholder="Confirmar senha" formControlName="confirmarSenha">
           <mat-error *ngIf="formRegistro.get('confirmarSenha')?.errors?.['required']">
             Confirmação de senha é obrigatória.
           </mat-error>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field appearance="outline">
-          <input matInput type="date" placeholder="Data de Nascimento (dd/MM/yyy)" formControlName="dataDeNascimento">
-          <mat-error *ngIf="formRegistro.get('dataDeNascimento')?.errors?.['required']">
+          <input matInput type="date" placeholder="Data de Nascimento (dd/MM/yyy)" formControlName="dataNascimento">
+          <mat-error *ngIf="formRegistro.get('dataNascimento')?.errors?.['required']">
             Data de Nscimento é obrigatória.
           </mat-error>
         </mat-form-field>
