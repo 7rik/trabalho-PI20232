@@ -11,7 +11,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <input matInput type="email" placeholder="Login" formControlName="login">
+          <input matInput type="text" placeholder="Login" formControlName="login">
           <mat-error *ngIf="formRegistro.get('login')?.errors?.['required']">
             Login é obrigatório.
           </mat-error>
