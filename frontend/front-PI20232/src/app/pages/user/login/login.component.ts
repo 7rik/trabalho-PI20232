@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { UserModel } from 'src/app/models/interfaces/user/user.model';
+import { UserModel } from 'src/app/models/classes/user/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { TicketService } from 'src/app/shared/services/ticket.service';
 
@@ -22,7 +22,18 @@ export class LoginComponent implements OnDestroy {
     private userService: UserService,
     private ticketService: TicketService,
   ) {
+    this.verifyUser();
     this.authForm = this.builderForm();
+  }
+
+  private verifyUser(): void {
+    if (this.ticketService.isLogged()) {
+      const user = this.ticketService.getUser();
+      if(user.isAdmin){
+        this.router.navigate(['/admin']);
+      }
+      this.router.navigate(['/painel-de-carros']);
+    }
   }
 
   public onSubmit(): void{
@@ -47,7 +58,7 @@ export class LoginComponent implements OnDestroy {
         Validators.required,
         Validators.pattern(/(.|\s)*\S(.|\s)*/)
       ])),
-      password: new FormControl({value: '', disabled: false}, Validators.compose([
+      senha: new FormControl({value: '', disabled: false}, Validators.compose([
         Validators.required,
         Validators.minLength(4),
       ]))

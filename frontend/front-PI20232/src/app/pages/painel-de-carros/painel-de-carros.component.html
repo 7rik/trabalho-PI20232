@@ -67,6 +67,8 @@
 </div>
 
 <ng-template #loggedButtons>
-  <a mat-button routerLink="/user/perfil">Perfil</a>
-  <a mat-button routerLink="/user/logout">Sair</a>
+  <div class="flex gap-1">
+    <a mat-button routerLink="/user/registro">Perfil</a>
+    <a mat-raised-button routerLink="/user/login" color="accent" (click)="onLogout()">Sair</a>
+  </div>
 </ng-template>

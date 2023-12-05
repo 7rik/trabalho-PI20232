@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TicketService } from 'src/app/shared/services/ticket.service';
 
 @Component({
   selector: 'app-painel-de-carros',
@@ -257,9 +258,11 @@ export class PainelDeCarrosComponent {
 
   public isLogged = false;
 
-  constructor() {
+  constructor(
+    private ticket: TicketService
+  ) {
+    this.isLogged = this.ticket.isLogged();
     this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
-
   }
 
   public filtro(tipoId: number) {
@@ -272,5 +275,10 @@ export class PainelDeCarrosComponent {
 
   public pegarTipo(tipoId: number): string {
     return this.tipos.filter(tipo => tipo.id === tipoId)[0]['nome'];
+  }
+
+  public onLogout(): void {
+    this.ticket.onLogout();
+    this.isLogged = false;
   }
 }
