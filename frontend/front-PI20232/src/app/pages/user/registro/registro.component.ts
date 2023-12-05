@@ -36,21 +36,6 @@ export class RegistroComponent implements OnDestroy {
     }
   }
 
-<<<<<<< HEAD
-  public registrar(): void {
-    console.log(this.formRegistro.value);
-    this.userService.signUpUser(this.formRegistro.value)
-    .pipe(takeUntil(this.destroy$))
-    .subscribe({
-      next: (response) => {
-        if (response) {
-          console.log(response);
-          this.formRegistro.reset();
-          this.router.navigate(['/painel-de-carros'])
-        }
-      },
-    });
-=======
   private atualizar() {
     if (this.formRegistro.value && this.formRegistro.valid) {
       this.userService.updateUser(this.formRegistro.value)
@@ -81,22 +66,10 @@ export class RegistroComponent implements OnDestroy {
         },
       });
     }
->>>>>>> erik-branch
   }
 
   private builderForm(): FormGroup {
     return this.fb.group({
-<<<<<<< HEAD
-      id: new FormControl({value: null,   disabled: false}),
-      login:  new FormControl({value: '',   disabled: false},         Validators.required),
-      nome: new FormControl({value: '',   disabled: false},         Validators.required),
-      senha: new FormControl({value: '',   disabled: false},         Validators.required),
-      dataNascimento: new FormControl({value: '',   disabled: false},         Validators.required),
-      ativo: new FormControl({value: true, disabled: false}),
-      isAdmin: new FormControl({value: false, disabled: false}),
-      dataCadastro: new FormControl({value: null,   disabled: false}),
-
-=======
       id:                 new FormControl({value: this.user.id,               disabled: false}),
       login:              new FormControl({value: this.user.login,            disabled: false},         Validators.required),
       nome:               new FormControl({value: this.user.nome,             disabled: false},         Validators.required),
@@ -105,7 +78,6 @@ export class RegistroComponent implements OnDestroy {
       ativo:              new FormControl({value: this.user.ativo,            disabled: false}),
       isAdmin:            new FormControl({value: this.user.isAdmin,          disabled: false}),
       dataCadastro:       new FormControl({value: this.user.dataCadastro,     disabled: false}),
->>>>>>> erik-branch
      })
   }
 

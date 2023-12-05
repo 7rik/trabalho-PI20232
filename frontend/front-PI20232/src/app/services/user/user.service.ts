@@ -21,16 +21,6 @@ export class UserService {
     (`${this.API_URL}/users`, requestDatas);
   }
 
-<<<<<<< HEAD
-  public authUser(requestDatas: AuthRequest): Observable<UserModel> {
-    return this.http.get<UserModel>
-    (`${this.API_URL}/users?login=${requestDatas.login}`);
-=======
-  // public authUser(requestDatas: AuthRequest): Observable<UserModel> {
-  //   return this.http.get<UserModel>
-  //   (`${this.API_URL}users/validate-login=${requestDatas.login}`);
-  // }
-
   public authUser(requestDatas: AuthRequest): Observable<any> {
     const body: any = {
       username: requestDatas.login,
@@ -58,12 +48,14 @@ export class UserService {
   public deleteUser(id: number): Observable<UserModel> {
     return this.http.delete<UserModel>
     (`${this.API_URL}/users/${id}`);
->>>>>>> erik-branch
   }
 
   public getUsers(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(`${this.API_URL}/users`);
   }
 
+  public recuperarSenha(login: string): Observable<UserModel> {
+    return this.http.put<UserModel>(`${this.API_URL}/users`, login);
+  }
   
 }

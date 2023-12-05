@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { UserModel } from 'src/app/models/interfaces/user/user.model';
-import { UserService } from 'src/app/services/user/user.service';
-=======
 import { TicketService } from 'src/app/shared/services/ticket.service';
->>>>>>> erik-branch
 
 @Component({
   selector: 'app-painel-de-carros',
@@ -265,37 +260,10 @@ export class PainelDeCarrosComponent {
   public isLogged = false;
 
   constructor(
-<<<<<<< HEAD
-    private _user: UserService,
-  ) {
-    this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
-    this.getUsers();
-  }
-
-  gerarRelatorio() {
-    let relatorio: any = '';
-
-    this.users.forEach((user: UserModel) => {
-      relatorio += user.id + ',' + user.nome + ',' + user.login + ',' + user.senha + '\n';
-    });
-
-    const blob = new Blob([relatorio], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    window.open(url);
-  }
-
-  private getUsers() {
-    this._user.getUsers().subscribe({
-      next: (response: any) => {
-          this.users = response;
-      }
-    });
-=======
     private ticket: TicketService
   ) {
     this.isLogged = this.ticket.isLogged();
     this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
->>>>>>> erik-branch
   }
 
   public filtro(tipoId: number) {
