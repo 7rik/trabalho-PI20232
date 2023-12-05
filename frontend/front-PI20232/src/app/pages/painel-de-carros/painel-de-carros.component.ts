@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { UserModel } from 'src/app/models/interfaces/user/user.model';
 import { UserService } from 'src/app/services/user/user.service';
+=======
+import { TicketService } from 'src/app/shared/services/ticket.service';
+>>>>>>> erik-branch
 
 @Component({
   selector: 'app-painel-de-carros',
@@ -261,6 +265,7 @@ export class PainelDeCarrosComponent {
   public isLogged = false;
 
   constructor(
+<<<<<<< HEAD
     private _user: UserService,
   ) {
     this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
@@ -285,6 +290,12 @@ export class PainelDeCarrosComponent {
           this.users = response;
       }
     });
+=======
+    private ticket: TicketService
+  ) {
+    this.isLogged = this.ticket.isLogged();
+    this.carrosSemInteressados = this.carros.filter(carro => carro.interessadoId === null);
+>>>>>>> erik-branch
   }
 
   public filtro(tipoId: number) {
@@ -297,5 +308,10 @@ export class PainelDeCarrosComponent {
 
   public pegarTipo(tipoId: number): string {
     return this.tipos.filter(tipo => tipo.id === tipoId)[0]['nome'];
+  }
+
+  public onLogout(): void {
+    this.ticket.onLogout();
+    this.isLogged = false;
   }
 }

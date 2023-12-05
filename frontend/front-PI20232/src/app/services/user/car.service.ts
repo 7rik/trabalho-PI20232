@@ -1,0 +1,40 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environments';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CarService {
+
+  private readonly API_URL = environment.API_URL;
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  public getAllCars(): any {
+    return this.http.get<any>
+    (`${this.API_URL}/cars`);
+  }
+
+  public getCarById(id: number): any {
+    return this.http.get<any>
+    (`${this.API_URL}/cars/${id}`);
+  }
+
+  public createCar(requestDatas: any): any {
+    return this.http.post<any>
+    (`${this.API_URL}/cars`, requestDatas);
+  }
+
+  public updateCar(requestDatas: any): any {
+    return this.http.put<any>
+    (`${this.API_URL}/cars/${requestDatas.id}`, requestDatas);
+  }
+
+  public deleteCar(id: number): any {
+    return this.http.delete<any>
+    (`${this.API_URL}/cars/${id}`);
+  }
+}
