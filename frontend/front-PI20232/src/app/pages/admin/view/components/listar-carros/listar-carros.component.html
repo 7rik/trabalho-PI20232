@@ -4,43 +4,35 @@
     <mat-card-title>Carros</mat-card-title>
     <mat-card-subtitle>Lista de carros</mat-card-subtitle>
     <div>
-      <button mat-raised-button color="primary" routerLink="/admin/carros/cadastrar">Cadastrar</button>
+      <button mat-raised-button color="primary" (click)="newCar()">Cadastrar</button>
     </div>
   </mat-card-header>
   <mat-card-content>
 
     <table mat-table [dataSource]="dataSource">
-      
-      <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Position Column -->
     <ng-container matColumnDef="modelo">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <th mat-header-cell *matHeaderCellDef> Modelo </th>
       <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="marca">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef> Marca </th>
       <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="ano">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <th mat-header-cell *matHeaderCellDef> Ano </th>
       <td mat-cell *matCellDef="let element"> {{element.anoDeFabricacao}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="interessados">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <th mat-header-cell *matHeaderCellDef> Interessado </th>
       <td mat-cell *matCellDef="let element"> {{element.interessado?.nome}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
       <td mat-cell *matCellDef="let element" style="width: 200px;">
         <button mat-icon-button><mat-icon>info</mat-icon></button>
         <button mat-icon-button><mat-icon>edit</mat-icon></button>

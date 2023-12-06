@@ -12,7 +12,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="w-100">
         <mat-label>Senha</mat-label>
-        <input matInput placeholder="Senha" formControlName="senha">
+        <input matInput type="password" placeholder="Senha" formControlName="senha">
         <mat-error *ngIf="authForm.get('senha')?.errors?.['required'] &&
           authForm.get('senha')?.touched">
           Senha é obrigatória!

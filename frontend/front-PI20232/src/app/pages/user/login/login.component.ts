@@ -26,16 +26,6 @@ export class LoginComponent implements OnDestroy {
     this.authForm = this.builderForm();
   }
 
-  private verifyUser(): void {
-    if (this.ticketService.isLogged()) {
-      const user = this.ticketService.getUser();
-      if(user.isAdmin){
-        this.router.navigate(['/admin']);
-      }
-      this.router.navigate(['/painel-de-carros']);
-    }
-  }
-
   public onSubmit(): void{
     if (this.authForm.value && this.authForm.valid) {
       this.userService.authUser(this.authForm.value)
@@ -63,6 +53,16 @@ export class LoginComponent implements OnDestroy {
         Validators.minLength(4),
       ]))
     })
+  }
+
+  private verifyUser(): void {
+    if (this.ticketService.isLogged()) {
+      const user = this.ticketService.getUser();
+      if(user.isAdmin){
+        this.router.navigate(['/admin']);
+      }
+      this.router.navigate(['/painel-de-carros']);
+    }
   }
 
   ngOnDestroy(): void {

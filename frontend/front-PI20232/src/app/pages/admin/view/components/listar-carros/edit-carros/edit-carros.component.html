@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-header class="justify-between flex">
+    <mat-card-title>{{car?.id ? 'Editar carro '+ car.name : 'Cadastrar um novo carro'}}</mat-card-title>
+    <mat-card-subtitle>Formulário de carros</mat-card-subtitle>
+    <div>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Fechar</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="mt-12">
+    <form (submit)="save()" [formGroup]="formRegistro" class="flex flex-wrap justify-between">
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca">
+        <mat-error *ngIf="formRegistro.get('marca')?.errors?.['required']">
+          Marca é obrigatória.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Modelo</mat-label>
+        <input matInput type="text" formControlName="modelo">
+        <mat-error *ngIf="formRegistro.get('modelo')?.errors?.['required']">
+          Modelo é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Descrição</mat-label>
+        <input matInput type="text" formControlName="descricao">
+        <mat-error *ngIf="formRegistro.get('descricao')?.errors?.['required']">
+          Descrição é obrigatória.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <input matInput type="text" placeholder="Ano do Modelo" formControlName="anoDoModelo">
+        <mat-error *ngIf="formRegistro.get('anoDoModelo')?.errors?.['required']">
+          Ano do Modelo é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" *ngIf="!car.id" class="w-full">
+        <mat-label>Ano de Fabricação</mat-label>
+        <input matInput type="number" formControlName="anoDeFabricacao">
+        <mat-error *ngIf="formRegistro.get('anoDeFabricacao')?.errors?.['required']">
+          Ano de Fabricação é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Valor</mat-label>
+        <input matInput type="text" formControlName="valor">
+        <mat-error *ngIf="formRegistro.get('valor')?.errors?.['required']">
+          Valor é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- TODO: TRANSFORMAR FOTO BASE 64 -->
+      <input type="file" (change)="convertBase64($event)">
+
+      <button mat-raised-button (submit)="save()" color="primary"
+        [disabled]="!formRegistro.valid">Registrar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
