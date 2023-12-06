@@ -7,6 +7,7 @@ import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usu
 import { PrincipalViewRoutingModule } from './principal-view.routing';
 import { InfoUsuarioComponent } from './components/listar-usuarios/info-usuario/info-usuario.component';
 import { EditUsuarioComponent } from './components/listar-usuarios/edit-usuario/edit-usuario.component';
+import { EditCarrosComponent } from './components/listar-carros/edit-carros/edit-carros.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EditUsuarioComponent } from './components/listar-usuarios/edit-usuario/
     ListarCarrosComponent,
     ListarUsuariosComponent,
     InfoUsuarioComponent,
-    EditUsuarioComponent
+    EditUsuarioComponent,
+    EditCarrosComponent
   ],
   imports: [
     CommonModule,

@@ -60,6 +60,7 @@ export class RegistroComponent implements OnDestroy {
         next: (response) => {
           if (response) {
             console.log(response);
+            this.ticket.setUser(response);
             this.formRegistro.reset();
             this.router.navigate(['/painel-de-carros'])
           }

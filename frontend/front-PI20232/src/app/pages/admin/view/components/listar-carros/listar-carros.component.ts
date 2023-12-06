@@ -1,6 +1,8 @@
 import {  Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CarModel } from 'src/app/models/classes/car/car.model';
 import { CarService } from 'src/app/services/user/car.service';
+import { EditCarrosComponent } from './edit-carros/edit-carros.component';
 
 
 @Component({
@@ -12,7 +14,8 @@ export class ListarCarrosComponent {
   dataSource = [];
 
   constructor(
-    private carros: CarService
+    private carros: CarService,
+    private dialog: MatDialog
   ){
     this.getCarros();
   }
@@ -22,6 +25,18 @@ export class ListarCarrosComponent {
       next: (response: any) => {
         this.dataSource = response;
       },
+    });
+  }
+
+  public newCar() {
+    const dialogRef = this.dialog.open(EditCarrosComponent, {
+      minWidth: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.getCarros();
+      }
     });
   }
 
