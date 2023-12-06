@@ -16,6 +16,11 @@ const routes: Routes = [
     path: 'registro', component: RegistroComponent, title: 'Registro'
   },
   {
+    path: 'alterar-meu-usuario',
+    component: RegistroComponent,
+    title: 'Alterar Meu Usuário'
+  },
+  {
     path: 'recuperar-senha', component: RecuperarSenhaComponent, title: 'Recuperar Senha' 
   }
 

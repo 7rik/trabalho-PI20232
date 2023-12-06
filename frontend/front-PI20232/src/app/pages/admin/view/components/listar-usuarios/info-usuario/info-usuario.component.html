@@ -1,0 +1,32 @@
+<mat-card>
+
+  <mat-card-header class="justify-between flex">
+    <mat-card-title>Usuário {{data.nome}}</mat-card-title>
+    <mat-card-subtitle>Informações do Usuário</mat-card-subtitle>
+    <div>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Fechar</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="flex flex-wrap mt-12">
+    <div class="w-full">
+      Nome:
+      <span>{{data.nome}}</span>
+    </div>
+    <div class="w-full">
+      Login:
+      <span>{{data.login}}</span>
+    </div>
+    <div class="w-full">
+      Data de Nascimento:
+      <span>{{data.dataNascimento}}</span>
+    </div>
+    <div class="w-full">
+      Administrador:
+      <span>{{data.isAdmin ? 'SIM' : 'NÃO'}}</span>
+    </div>
+    <div class="w-full">
+      Ativo:
+      <span>{{data.ativo ? 'SIM' : 'NÃO'}}</span>
+    </div>
+  </mat-card-content>
+</mat-card>

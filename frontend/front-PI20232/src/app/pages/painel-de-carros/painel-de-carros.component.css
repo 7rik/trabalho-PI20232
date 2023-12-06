@@ -18,7 +18,7 @@
   padding: 12px !important;
 }
 .imagens:hover > .description-rover{
-  display: flex;
+  display: none;
 }
 .carros__imagens {
   width: 100%;

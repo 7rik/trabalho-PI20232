@@ -4,6 +4,7 @@ import { MaterialModule } from 'src/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin.routing';
 import { PrincipalAdmComponent } from './principal-adm/principal-adm.component';
+import { PrincipalViewModule } from './view/principal-view.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PrincipalAdmComponent } from './principal-adm/principal-adm.component';
     MaterialModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PrincipalViewModule
   ]
 })
 export class AdminModule { }

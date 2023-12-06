@@ -33,7 +33,12 @@ export class CarService {
     (`${this.API_URL}/cars/${requestDatas.id}`, requestDatas);
   }
 
-  public deleteCar(id: number): any {
+  public interesseCar(carId: any, userId: any): any {
+    return this.http.put<any>
+    (`${this.API_URL}/cars/${carId}/interesse/${userId}`, {});
+  }
+
+  public deleteCar(id: any): any {
     return this.http.delete<any>
     (`${this.API_URL}/cars/${id}`);
   }

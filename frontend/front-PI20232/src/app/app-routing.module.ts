@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'painel-de-carros', component: PainelDeCarrosComponent, title: 'Painel de Carros'
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
     path: 'user',
     loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
   }

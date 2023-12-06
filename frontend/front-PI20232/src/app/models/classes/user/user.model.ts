@@ -5,8 +5,8 @@ export class UserModel {
   nome: string;
   ativo: boolean;
   isAdmin: boolean;
-  dataNascimento: Date | null;
-  dataCadastro: Date | null;
+  dataNascimento: Date | '';
+  dataCadastro: Date | '';
 
   constructor(obj?: UserModel) {
     this.id             = obj?.id             || null;
@@ -15,7 +15,7 @@ export class UserModel {
     this.nome           = obj?.nome           || '';
     this.ativo          = obj?.ativo          || true;
     this.isAdmin        = obj?.isAdmin        || false;
-    this.dataNascimento = obj?.dataNascimento || null;
-    this.dataCadastro   = obj?.dataCadastro   || null;
+    this.dataNascimento = obj?.dataNascimento || '';
+    this.dataCadastro   = obj?.dataCadastro   || '';
   }
 }

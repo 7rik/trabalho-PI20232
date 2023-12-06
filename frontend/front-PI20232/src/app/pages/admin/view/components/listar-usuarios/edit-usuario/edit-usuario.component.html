@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-header class="justify-between flex">
+    <mat-card-title>{{user?.id ? 'Editar usuário '+ user.name : 'Criar novo usuário'}}</mat-card-title>
+    <mat-card-subtitle>Formulário de usuário</mat-card-subtitle>
+    <div>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Fechar</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="mt-12">
+    <form (submit)="save()" [formGroup]="formRegistro" class="flex flex-wrap justify-between">
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Nome completo</mat-label>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="formRegistro.get('nome')?.errors?.['required']">
+          Nome é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Login</mat-label>
+        <input matInput type="text" formControlName="login">
+        <mat-error *ngIf="formRegistro.get('login')?.errors?.['required']">
+          Login é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="senha">
+        <mat-error *ngIf="formRegistro.get('senha')?.errors?.['required']">
+          Senha é obrigatória.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="outline">
+        <input matInput type="password" placeholder="Confirmar senha" formControlName="confirmarSenha">
+        <mat-error *ngIf="formRegistro.get('confirmarSenha')?.errors?.['required']">
+          Confirmação de senha é obrigatória.
+        </mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="outline" *ngIf="!user.id" class="w-full">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput type="date" formControlName="dataNascimento">
+        <mat-error *ngIf="formRegistro.get('dataNascimento')?.errors?.['required']">
+          Data de Nscimento é obrigatória.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="isAdmin">
+        Administrador
+      </mat-checkbox>
+      <mat-checkbox formControlName="ativo">
+        Ativo
+      </mat-checkbox>
+      <button mat-raised-button (submit)="save()" color="primary"
+        [disabled]="!formRegistro.valid">Registrar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

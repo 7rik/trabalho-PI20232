@@ -6,44 +6,39 @@
   </div>
 </mat-toolbar>
 <div class="principal">
-  <mat-chip-listbox class="w-100" aria-label="Fish selection">
-    <mat-chip-option (click)="filtro(0)">Nenhum</mat-chip-option>
-    <mat-chip-option *ngFor="let tipo of tipos" (click)="filtro(tipo.id)">{{tipo.nome}}</mat-chip-option>
-  </mat-chip-listbox>
 
-  <button mat-raised-button (click)="gerarRelatorio()">Baixar relatório</button>
   <div class="cards gap-1">
     <mat-card class="carros__card" *ngFor="let carro of carrosSemInteressados">
       <mat-card-header class="justify-between flex">
         <mat-card-title class="titulo__carro">{{carro.nome}}</mat-card-title>
-        <span>{{pegarTipo(carro.tipoId)}}</span>
+
       </mat-card-header>
       <div class="imagens">
-        <img class="carros__imagens" [src]="carro.foto" alt="Ford Ranger">
+        <img class="carros__imagens" [src]="'data:image/png;base64,'+carro.foto" alt="Ford Ranger">
         <div class="description-rover flex-wrap justify-around" >
           <div class="description-rover__item">
             <mat-icon>calendar_today</mat-icon>
-            <span>{{carro.info.ano}}</span>
+            <!--<span>{{carro.info.ano}}</span>-->
           </div>
           <div class="description-rover__item">
             <mat-icon>directions_car</mat-icon>
-            <span>{{carro.info.quilometragem}} km</span>
+            <!--<span>{{carro.info.quilometragem}} km</span>-->
           </div>
           <div class="description-rover__item">
             <mat-icon>local_gas_station</mat-icon>
-            <span>{{carro.info.tipoCombustivel}}</span>
+            <!--<span>{{carro.info.tipoCombustivel}}</span>-->
           </div>
           <div class="description-rover__item">
             <mat-icon>device_hub</mat-icon>
-            <span>{{carro.info.cambio}}</span>
+            <!--<span>{{carro.info.cambio}}</span>-->
           </div>
           <div class="description-rover__item">
             <mat-icon>people</mat-icon>
-            <span>{{carro.info.lugares}} lugares</span>
+            <!--<span>{{carro.info.lugares}} lugares</span>-->
           </div>
           <div class="description-rover__item">
             <mat-icon>format_paint</mat-icon>
-            <span>{{carro.info.cor}}</span>
+            <!--<span>{{carro.info.cor}}</span>-->
           </div>
         </div>
       </div>
@@ -51,7 +46,7 @@
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{carro.nome}}
+              {{carro.modelo}}
             </mat-panel-title>
             <mat-panel-description>
               Descrição
@@ -61,7 +56,7 @@
         </mat-expansion-panel>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button class="botao__interesse">Tenho Interesse</button>
+        <button mat-button class="botao__interesse" (click)="updateInteresse(carro)">Tenho Interesse</button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -69,7 +64,8 @@
 
 <ng-template #loggedButtons>
   <div class="flex gap-1">
-    <a mat-button routerLink="/user/registro">Perfil</a>
+    <a mat-button routerLink="/user/alterar-meu-usuario">Alterar Perfil</a>
+    <a mat-button routerLink="/admin/carros" *ngIf="user.isAdmin">Painel Administrativo</a>
     <a mat-raised-button routerLink="/user/login" color="accent" (click)="onLogout()">Sair</a>
   </div>
 </ng-template>
