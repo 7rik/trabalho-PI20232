@@ -57,6 +57,7 @@ export class ListarUsuariosComponent {
       }
     });
   }
+
   private getUsers() {
     this.user.getAllUsers().subscribe({
       next: (response: any) => {

@@ -3,8 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CarModel } from 'src/app/models/classes/car/car.model';
-import { CarService } from 'src/app/services/user/car.service';
-import { UserService } from 'src/app/services/user/user.service';
+import { CarService } from 'src/app/services/car/car.service';
 import { TicketService } from 'src/app/shared/services/ticket.service';
 
 @Component({
@@ -39,21 +38,14 @@ export class EditCarrosComponent {
   public convertBase64(event: any) {
     const file = event.target.files[0];
     const reader = new FileReader();
-
+    const imgBase64 = this;
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-    console.log(this.formRegistro.value)
-    //this.formRegistro.get('foto').setValue(reader.result);
-    console.log(reader.result);
+      let imgCovertedToBase64 = imgBase64.formRegistro.value;
+      imgCovertedToBase64.foto = reader.result;
+      imgBase64.formRegistro.setValue(imgCovertedToBase64);
+      console.log(imgCovertedToBase64);
     };
-
-    // if (file) {
-    //   const reader = new FileReader();
-    //   reader.readAsDataURL(file);
-    //   reader.onloadend = () => {
-    //     //this.formRegistro.get('foto').setValue(reader.result);
-    //   };
-    // }
   }
 
   private atualizar() {
@@ -88,9 +80,10 @@ export class EditCarrosComponent {
   private builderForm(): FormGroup {
     return this.fb.group({
       id:                   new FormControl({value: this.car.id,                  disabled: false}),
-      marca:                new FormControl({value: this.car.login,               disabled: false},         Validators.required),
-      modelo:               new FormControl({value: this.car.nome,                disabled: false},         Validators.required),
+      marca:                new FormControl({value: this.car.marca,               disabled: false},         Validators.required),
+      modelo:               new FormControl({value: this.car.modelo,              disabled: false},         Validators.required),
       descricao:            new FormControl({value: this.car.descricao,           disabled: false},         Validators.required),
+      interessado:          new FormControl({value: this.car.interessado,         disabled: false}),
       anoDeFabricacao:      new FormControl({value: this.car.anoDeFabricacao,     disabled: false},         Validators.required),
       anoDoModelo:          new FormControl({value: this.car.anoDoModelo,         disabled: false},         Validators.required),
       valor:                new FormControl({value: this.car.valor,               disabled: false},         Validators.required),

@@ -8,15 +8,24 @@ import { PrincipalViewRoutingModule } from './principal-view.routing';
 import { InfoUsuarioComponent } from './components/listar-usuarios/info-usuario/info-usuario.component';
 import { EditUsuarioComponent } from './components/listar-usuarios/edit-usuario/edit-usuario.component';
 import { EditCarrosComponent } from './components/listar-carros/edit-carros/edit-carros.component';
+import { InfoCarrosComponent } from './components/listar-carros/info-carros/info-carros.component';
+import { EditInteressesComponent } from './components/listar-interesses/edit-interesses/edit-interesses.component';
+import { ListarInteressesComponent } from './components/listar-interesses/listar-interesses.component';
+import { InfoInteressesComponent } from './components/listar-interesses/info-interesses/info-interesses.component';
 
 
 @NgModule({
   declarations: [
     ListarCarrosComponent,
     ListarUsuariosComponent,
-    InfoUsuarioComponent,
+    ListarInteressesComponent,
     EditUsuarioComponent,
-    EditCarrosComponent
+    EditCarrosComponent,
+    EditInteressesComponent,
+    InfoCarrosComponent,
+    InfoUsuarioComponent,
+    InfoInteressesComponent
+
   ],
   imports: [
     CommonModule,

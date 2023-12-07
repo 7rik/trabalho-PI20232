@@ -3,6 +3,7 @@ export class CarModel {
   marca: string;
   modelo: string;
   descricao: string;
+  interessado?: number | null;
   anoDeFabricacao: number | null;
   anoDoModelo: number | null;
   valor: number | null;
@@ -13,6 +14,7 @@ export class CarModel {
     this.marca               = obj?.marca               || '';
     this.modelo              = obj?.modelo              || '';
     this.descricao           = obj?.descricao           || '';
+    this.interessado         = obj?.interessado         || null;
     this.anoDeFabricacao     = obj?.anoDeFabricacao     || null;
     this.anoDoModelo         = obj?.anoDoModelo         || null;
     this.valor               = obj?.valor               || null;

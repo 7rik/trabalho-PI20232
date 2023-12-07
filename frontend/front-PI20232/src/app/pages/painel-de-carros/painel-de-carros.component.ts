@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarModel } from 'src/app/models/classes/car/car.model';
 import { UserModel } from 'src/app/models/classes/user/user.model';
-import { CarService } from 'src/app/services/user/car.service';
+import { CarService } from 'src/app/services/car/car.service';
 import { TicketService } from 'src/app/shared/services/ticket.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class PainelDeCarrosComponent {
     this.user = this.ticket.getUser();
   }
 
-  
+
   private getAllCars() {
     this.car.getAllCars().subscribe({
       next: (response: any) => {

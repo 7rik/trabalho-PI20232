@@ -18,7 +18,7 @@
     </div>
     <div class="w-full">
       Data de Nascimento:
-      <span>{{data.dataNascimento}}</span>
+      <span>{{data.dataNascimento | date: 'dd/MM/yyy'}}</span>
     </div>
     <div class="w-full">
       Administrador:
@@ -27,6 +27,10 @@
     <div class="w-full">
       Ativo:
       <span>{{data.ativo ? 'SIM' : 'NÃO'}}</span>
+    </div>
+    <div class="w-full">
+      Data de Cadastro:
+      <span>{{data.dataCadastro | date: 'dd/MM/yyyy'}}</span>
     </div>
   </mat-card-content>
 </mat-card>
