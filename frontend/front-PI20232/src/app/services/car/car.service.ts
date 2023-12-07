@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environments';
 })
 export class CarService {
 
-  private readonly API_URL = environment.API_URL;
+  public API_URL = environment.API_URL;
 
   constructor(
     private http: HttpClient
@@ -42,4 +42,11 @@ export class CarService {
     return this.http.delete<any>
     (`${this.API_URL}/cars/${id}`);
   }
+
+  public deleteInteresse(carId: any, userId: any): any {
+    const url = `${this.API_URL}/cars/${carId}/interesse/${userId}`;
+    console.log('URL da requisição DELETE:', url);
+    return this.http.delete<any>(url);
+  }
+
 }
