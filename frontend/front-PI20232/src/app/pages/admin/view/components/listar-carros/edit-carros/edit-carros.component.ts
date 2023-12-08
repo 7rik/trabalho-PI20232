@@ -44,7 +44,6 @@ export class EditCarrosComponent {
       let imgCovertedToBase64 = imgBase64.formRegistro.value;
       imgCovertedToBase64.foto = reader.result;
       imgBase64.formRegistro.setValue(imgCovertedToBase64);
-      console.log(imgCovertedToBase64);
     };
   }
 

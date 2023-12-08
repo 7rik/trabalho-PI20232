@@ -12,8 +12,7 @@ import { TicketService } from 'src/app/shared/services/ticket.service';
 })
 export class PainelDeCarrosComponent {
 
-  public carrosSemInteressados: any = [];
-  public carros = [];
+  public carros: CarModel[] = [];
 
   public users: any = [];
 
@@ -31,19 +30,11 @@ export class PainelDeCarrosComponent {
 
 
   private getAllCars() {
-    this.car.getAllCars().subscribe({
+    this.car.getAllPublicCars().subscribe({
       next: (response: any) => {
         this.carros = response;
-        this.carrosSemInteressados = response.filter((car: any)=> car.interessado==null);
       },
     });
-  }
-  public filtro(tipoId: number) {
-    if (tipoId === 0) {
-      this.carrosSemInteressados = this.carros.filter((carro: any) => carro.interessado === null);
-    } else {
-      this.carrosSemInteressados = this.carros.filter((carro: any) => carro.interessado === null && carro.tipoId === tipoId);
-    }
   }
 
   public updateInteresse(carro: CarModel){
