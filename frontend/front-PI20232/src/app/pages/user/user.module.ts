@@ -6,20 +6,24 @@ import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.compo
 import { MaterialModule } from 'src/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user.routing';
+import { CarService } from 'src/app/services/car/car.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { UserModel } from 'src/app/models/classes/user/user.model';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegistroComponent,
-    RecuperarSenhaComponent
+    RecuperarSenhaComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
+  providers: []
 })
 export class UserModule { }

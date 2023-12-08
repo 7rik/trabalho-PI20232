@@ -13,7 +13,6 @@ import { EditInteressesComponent } from './components/listar-interesses/edit-int
 import { ListarInteressesComponent } from './components/listar-interesses/listar-interesses.component';
 import { InfoInteressesComponent } from './components/listar-interesses/info-interesses/info-interesses.component';
 
-
 @NgModule({
   declarations: [
     ListarCarrosComponent,
@@ -24,7 +23,7 @@ import { InfoInteressesComponent } from './components/listar-interesses/info-int
     EditInteressesComponent,
     InfoCarrosComponent,
     InfoUsuarioComponent,
-    InfoInteressesComponent
+    InfoInteressesComponent,
 
   ],
   imports: [
@@ -32,7 +31,8 @@ import { InfoInteressesComponent } from './components/listar-interesses/info-int
     MaterialModule,
     ReactiveFormsModule,
     PrincipalViewRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
+  providers: []
 })
 export class PrincipalViewModule { }

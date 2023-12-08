@@ -10,7 +10,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from 'src/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PainelDeCarrosComponent } from './pages/painel-de-carros/painel-de-carros.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +24,7 @@ import { PainelDeCarrosComponent } from './pages/painel-de-carros/painel-de-carr
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

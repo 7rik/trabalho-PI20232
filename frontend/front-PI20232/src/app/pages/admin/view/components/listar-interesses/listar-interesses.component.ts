@@ -17,7 +17,7 @@ export class ListarInteressesComponent {
 
   constructor(
     public interesses: CarService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ){
     this.getInteresses();
   }
@@ -25,7 +25,9 @@ export class ListarInteressesComponent {
   private getInteresses() {
     this.interesses.getAllCars().subscribe({
       next: (response: any) => {
-        this.dataSource = response.filter((car: CarModel) => car.interessado != null);
+        if(response){
+          this.dataSource = response.filter((car: CarModel) => car.interessado != null);
+        }
       },
     });
   }
@@ -56,15 +58,12 @@ export class ListarInteressesComponent {
     });
   }
 
-  public deleteInteresse(car: CarModel) {
-    this.interesses.deleteInteresse(car.id, car.interessado).subscribe({
+  public removerInteresse(car: CarModel, interessado: UserModel) {
+    this.interesses.removerInteresse(car.id, interessado.id).subscribe({
       next: (response: any) => {
         console.log(response);
         this.getInteresses();
       },
-      error: (error: any) => {
-        console.log(error);
-      }
     });
   }
 }

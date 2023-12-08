@@ -17,7 +17,7 @@ import { PrincipalViewModule } from './view/principal-view.module';
     AdminRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    PrincipalViewModule
+    PrincipalViewModule,
   ]
 })
 export class AdminModule { }
