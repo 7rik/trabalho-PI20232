@@ -1,5 +1,4 @@
 <mat-card>
-
   <mat-card-header class="justify-between flex">
     <mat-card-title>Carros</mat-card-title>
     <mat-card-subtitle>Lista de carros</mat-card-subtitle>
@@ -9,7 +8,7 @@
   </mat-card-header>
   <mat-card-content>
 
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" *ngIf="dataSource.length > 0; else semCarros">
 
     <ng-container matColumnDef="modelo">
       <th mat-header-cell *matHeaderCellDef> Modelo </th>
@@ -26,16 +25,11 @@
       <td mat-cell *matCellDef="let element"> {{element.anoDeFabricacao}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="interessados">
-      <th mat-header-cell *matHeaderCellDef> Interessado </th>
-      <td mat-cell *matCellDef="let element"> {{element.interessado?.nome}} </td>
-    </ng-container>
-
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Ações </th>
       <td mat-cell *matCellDef="let element" style="width: 200px;">
-        <button mat-icon-button><mat-icon>info</mat-icon></button>
-        <button mat-icon-button><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button (click)="openInfo(element)" ><mat-icon>info</mat-icon></button>
+        <button mat-icon-button (click)="openEdit(element)" ><mat-icon>edit</mat-icon></button>
         <button mat-icon-button color="warn" (click)="deleteCarro(element)"><mat-icon>delete</mat-icon></button>
       </td>
     </ng-container>
@@ -46,3 +40,7 @@
 
   </mat-card-content>
 </mat-card>
+<ng-template #semCarros>
+    <mat-card-content class="w-full flex justify-center">
+      <span>Não há carros cadastrados</span>
+    </mat-card-content>

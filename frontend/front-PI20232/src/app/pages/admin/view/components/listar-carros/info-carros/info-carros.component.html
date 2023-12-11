@@ -1,0 +1,32 @@
+<mat-card>
+
+  <mat-card-header class="justify-between flex">
+    <mat-card-title>Carro: {{data.modelo}}</mat-card-title>
+    <mat-card-subtitle>Informações do Carro</mat-card-subtitle>
+    <div>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Fechar</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="flex flex-wrap mt-12">
+    <div class="w-full">
+      Marca:
+      <span>{{data.marca}}</span>
+    </div>
+    <div class="w-full">
+      Modelo:
+      <span>{{data.modelo}}</span>
+    </div>
+    <div class="w-full">
+      Ano de Fabricação:
+      <span>{{data.anoDeFabricacao}}</span>
+    </div>
+    <div class="w-full">
+      Ano do Modelo:
+      <span>{{data.anoDoModelo}}</span>
+    </div>
+    <div class="w-full">
+      Valor:
+      <span>{{data.valor}}</span>
+    </div>
+  </mat-card-content>
+</mat-card>

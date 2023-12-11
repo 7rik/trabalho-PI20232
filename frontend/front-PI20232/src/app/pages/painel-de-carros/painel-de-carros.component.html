@@ -8,39 +8,12 @@
 <div class="principal">
 
   <div class="cards gap-1">
-    <mat-card class="carros__card" *ngFor="let carro of carrosSemInteressados">
+    <mat-card class="carros__card" *ngFor="let carro of carros">
       <mat-card-header class="justify-between flex">
-        <mat-card-title class="titulo__carro">{{carro.nome}}</mat-card-title>
-
+        <mat-card-title class="titulo__carro">{{carro.marca + ' '}}{{carro.modelo}}</mat-card-title>
       </mat-card-header>
       <div class="imagens">
-        <img class="carros__imagens" [src]="'data:image/png;base64,'+ carro.foto" alt="{{carro.nome}}">
-        <div class="description-rover flex-wrap justify-around" >
-          <div class="description-rover__item">
-            <mat-icon>calendar_today</mat-icon>
-            <!--<span>{{carro.info.ano}}</span>-->
-          </div>
-          <div class="description-rover__item">
-            <mat-icon>directions_car</mat-icon>
-            <!--<span>{{carro.info.quilometragem}} km</span>-->
-          </div>
-          <div class="description-rover__item">
-            <mat-icon>local_gas_station</mat-icon>
-            <!--<span>{{carro.info.tipoCombustivel}}</span>-->
-          </div>
-          <div class="description-rover__item">
-            <mat-icon>device_hub</mat-icon>
-            <!--<span>{{carro.info.cambio}}</span>-->
-          </div>
-          <div class="description-rover__item">
-            <mat-icon>people</mat-icon>
-            <!--<span>{{carro.info.lugares}} lugares</span>-->
-          </div>
-          <div class="description-rover__item">
-            <mat-icon>format_paint</mat-icon>
-            <!--<span>{{carro.info.cor}}</span>-->
-          </div>
-        </div>
+        <img class="carros__imagens" [src]="carro.foto" alt="{{carro.modelo}}">
       </div>
       <mat-card-content>
         <mat-expansion-panel hideToggle>
@@ -53,6 +26,10 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <p>{{carro.descricao}}</p>
+          <mat-label>
+            <b>Valor:</b> <br>
+            <span class="carros__valor">R$: {{carro.valor}}</span>
+          </mat-label>
         </mat-expansion-panel>
       </mat-card-content>
       <mat-card-actions>
@@ -64,7 +41,8 @@
 
 <ng-template #loggedButtons>
   <div class="flex gap-1">
-    <a mat-button routerLink="/user/alterar-meu-usuario">Alterar Perfil</a>
+    <a mat-button routerLink="/user/alterar-meu-usuario" *ngIf="!user.isAdmin">Alterar Perfil</a>
+    <a mat-button routerLink="/user/meus-interesses" *ngIf="!user.isAdmin">Meus Interesses</a>
     <a mat-button routerLink="/admin/carros" *ngIf="user.isAdmin">Painel Administrativo</a>
     <a mat-raised-button routerLink="/user/login" color="accent" (click)="onLogout()">Sair</a>
   </div>

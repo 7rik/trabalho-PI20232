@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
+import { ListarInteressesComponent } from '../admin/view/components/listar-interesses/listar-interesses.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,11 @@ const routes: Routes = [
     title: 'Alterar Meu Usuário'
   },
   {
-    path: 'recuperar-senha', component: RecuperarSenhaComponent, title: 'Recuperar Senha' 
+    path: 'recuperar-senha', component: RecuperarSenhaComponent, title: 'Recuperar Senha'
+  },
+  {
+    path: 'meus-interesses',
+    component: ListarInteressesComponent,
   }
 
 ];

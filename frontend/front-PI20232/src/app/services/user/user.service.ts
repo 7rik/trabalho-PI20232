@@ -57,5 +57,5 @@ export class UserService {
   public recuperarSenha(login: string): Observable<UserModel> {
     return this.http.put<UserModel>(`${this.API_URL}/users`, login);
   }
-  
+
 }

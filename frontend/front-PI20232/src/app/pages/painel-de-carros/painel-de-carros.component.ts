@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarModel } from 'src/app/models/classes/car/car.model';
 import { UserModel } from 'src/app/models/classes/user/user.model';
-import { CarService } from 'src/app/services/user/car.service';
+import { CarService } from 'src/app/services/car/car.service';
 import { TicketService } from 'src/app/shared/services/ticket.service';
 
 @Component({
@@ -12,8 +12,7 @@ import { TicketService } from 'src/app/shared/services/ticket.service';
 })
 export class PainelDeCarrosComponent {
 
-  public carrosSemInteressados: any = [];
-  public carros = [];
+  public carros: CarModel[] = [];
 
   public users: any = [];
 
@@ -29,21 +28,13 @@ export class PainelDeCarrosComponent {
     this.user = this.ticket.getUser();
   }
 
-  
+
   private getAllCars() {
-    this.car.getAllCars().subscribe({
+    this.car.getAllPublicCars().subscribe({
       next: (response: any) => {
         this.carros = response;
-        this.carrosSemInteressados = response.filter((car: any)=> car.interessado==null);
       },
     });
-  }
-  public filtro(tipoId: number) {
-    if (tipoId === 0) {
-      this.carrosSemInteressados = this.carros.filter((carro: any) => carro.interessado === null);
-    } else {
-      this.carrosSemInteressados = this.carros.filter((carro: any) => carro.interessado === null && carro.tipoId === tipoId);
-    }
   }
 
   public updateInteresse(carro: CarModel){

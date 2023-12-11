@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header class="justify-between flex">
+    <mat-card-title>Carro: {{data.marca + ' '}}{{data.modelo}}</mat-card-title>
+    <mat-card-subtitle>Informações do Interesse</mat-card-subtitle>
+    <div>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">Fechar</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="flex flex-wrap mt-12">
+    <div class="w-full">
+      Interessado:
+      <span>{{data.interessado}}</span>
+    </div>
+    <div class="w-full">
+      Modelo:
+      <span>{{data.modelo}}</span>
+    </div>
+    <div class="w-full">
+      Marca:
+      <span>{{data.marca}}</span>
+    </div>
+    <div class="w-full">
+      Valor:
+      <span> R$: {{data.valor}}</span>
+    </div>
+  </mat-card-content>
+</mat-card>

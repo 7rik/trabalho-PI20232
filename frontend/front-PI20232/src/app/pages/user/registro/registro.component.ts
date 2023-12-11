@@ -74,7 +74,7 @@ export class RegistroComponent implements OnDestroy {
       id:                 new FormControl({value: this.user.id,               disabled: false}),
       login:              new FormControl({value: this.user.login,            disabled: false},         Validators.required),
       nome:               new FormControl({value: this.user.nome,             disabled: false},         Validators.required),
-      senha:              new FormControl({value: this.user.senha,            disabled: false},         Validators.required),
+      senha:              new FormControl({value: this.user.senha,            disabled: false},         Validators.compose([Validators.required, Validators.minLength(4)])),
       dataNascimento:     new FormControl({value: this.user.dataNascimento,   disabled: false},         this.user ? null : Validators.required),
       ativo:              new FormControl({value: this.user.ativo,            disabled: false}),
       isAdmin:            new FormControl({value: this.user.isAdmin,          disabled: false}),
