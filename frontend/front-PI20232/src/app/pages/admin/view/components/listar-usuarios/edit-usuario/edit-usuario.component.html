@@ -31,6 +31,10 @@
         <mat-error *ngIf="formRegistro.get('senha')?.errors?.['required']">
           Senha é obrigatória.
         </mat-error>
+        <mat-error *ngIf="formRegistro.get('senha')?.errors?.['minlength'] &&
+          formRegistro.get('senha')?.touched">
+          Senha deve ter no mínimo 4 caracteres!
+        </mat-error>
       </mat-form-field>
 
       <!-- <mat-form-field appearance="outline">
@@ -55,7 +59,7 @@
         Ativo
       </mat-checkbox>
       <button mat-raised-button (submit)="save()" color="primary"
-        [disabled]="!formRegistro.valid">Registrar</button>
+        [disabled]="!formRegistro.valid">{{user?.id ? "Editar" : "Registrar"}}</button>
     </form>
   </mat-card-content>
 </mat-card>

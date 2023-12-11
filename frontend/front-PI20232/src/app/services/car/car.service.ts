@@ -58,6 +58,6 @@ export class CarService {
 
   public removerInteresse(carId: any, userId: any): any {
     return this.http.put<any>
-    (`${this.API_URL}/cars/${carId}/interesse/${userId}`, {});
+    (`${this.API_URL}/cars/${carId}/removeinteresse/${userId}`, {});
   }
 }

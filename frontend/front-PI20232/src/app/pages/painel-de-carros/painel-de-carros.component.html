@@ -42,6 +42,7 @@
 <ng-template #loggedButtons>
   <div class="flex gap-1">
     <a mat-button routerLink="/user/alterar-meu-usuario" *ngIf="!user.isAdmin">Alterar Perfil</a>
+    <a mat-button routerLink="/user/meus-interesses" *ngIf="!user.isAdmin">Meus Interesses</a>
     <a mat-button routerLink="/admin/carros" *ngIf="user.isAdmin">Painel Administrativo</a>
     <a mat-raised-button routerLink="/user/login" color="accent" (click)="onLogout()">Sair</a>
   </div>
