@@ -8,7 +8,7 @@
   </mat-card-header>
   <mat-card-content>
 
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" *ngIf="dataSource.length > 0; else semUsuarios">
 
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef> Status </th>
@@ -46,3 +46,7 @@
 
   </mat-card-content>
 </mat-card>
+<ng-template #semUsuarios>
+    <mat-card-content class="w-full flex justify-center">
+      <span>Não há usuários cadastrados</span>
+    </mat-card-content>

@@ -2,9 +2,9 @@ import {  Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CarModel } from 'src/app/models/classes/car/car.model';
 import { CarService } from 'src/app/services/car/car.service';
-import { EditInteressesComponent } from './edit-interesses/edit-interesses.component';
 import { InfoInteressesComponent } from './info-interesses/info-interesses.component';
 import { UserModel } from 'src/app/models/classes/user/user.model';
+import { TicketService } from 'src/app/shared/services/ticket.service';
 
 
 @Component({
@@ -18,30 +18,20 @@ export class ListarInteressesComponent {
   constructor(
     public interesses: CarService,
     private dialog: MatDialog,
+    private user: TicketService,
   ){
     this.getInteresses();
   }
 
-  private getInteresses() {
-    this.interesses.getAllCars().subscribe({
+  public getInteresses() {
+    this.interesses.getAllInterestedCars().subscribe({
       next: (response: any) => {
         if(response){
-          this.dataSource = response.filter((car: CarModel) => car.interessado != null);
+          this.dataSource = response;
         }
       },
-    });
-  }
-
-
-  public openEdit(car: CarModel) {
-    const dialogRef = this.dialog.open(EditInteressesComponent, {
-      data: car,
-      minWidth: '400px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.getInteresses();
+      error: (error: any) => {
+        console.log(error);
       }
     });
   }
@@ -59,12 +49,15 @@ export class ListarInteressesComponent {
   }
 
   public removerInteresse(car: CarModel, interessado: UserModel) {
-    this.interesses.removerInteresse(car.id, interessado.id).subscribe({
+    this.interesses.removerInteresse(car.id, interessado?.id).subscribe({
       next: (response: any) => {
-        console.log(response);
         this.getInteresses();
       },
     });
+  }
+
+  public verificacaoUsuario() {
+    return this.user.getUser()?.isAdmin === true;
   }
 }
 

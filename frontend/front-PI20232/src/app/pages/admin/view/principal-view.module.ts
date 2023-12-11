@@ -9,7 +9,6 @@ import { InfoUsuarioComponent } from './components/listar-usuarios/info-usuario/
 import { EditUsuarioComponent } from './components/listar-usuarios/edit-usuario/edit-usuario.component';
 import { EditCarrosComponent } from './components/listar-carros/edit-carros/edit-carros.component';
 import { InfoCarrosComponent } from './components/listar-carros/info-carros/info-carros.component';
-import { EditInteressesComponent } from './components/listar-interesses/edit-interesses/edit-interesses.component';
 import { ListarInteressesComponent } from './components/listar-interesses/listar-interesses.component';
 import { InfoInteressesComponent } from './components/listar-interesses/info-interesses/info-interesses.component';
 
@@ -20,7 +19,6 @@ import { InfoInteressesComponent } from './components/listar-interesses/info-int
     ListarInteressesComponent,
     EditUsuarioComponent,
     EditCarrosComponent,
-    EditInteressesComponent,
     InfoCarrosComponent,
     InfoUsuarioComponent,
     InfoInteressesComponent,
@@ -33,6 +31,7 @@ import { InfoInteressesComponent } from './components/listar-interesses/info-int
     PrincipalViewRoutingModule,
     FormsModule,
   ],
-  providers: []
+  providers: [],
+  exports: [ListarCarrosComponent]
 })
 export class PrincipalViewModule { }

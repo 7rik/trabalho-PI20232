@@ -11,7 +11,7 @@ import { InfoCarrosComponent } from './info-carros/info-carros.component';
   templateUrl: './listar-carros.component.html',
 })
 export class ListarCarrosComponent {
-  displayedColumns: string[] = ['modelo', 'marca', 'ano', 'interessados', 'actions'];
+  displayedColumns: string[] = ['modelo', 'marca', 'ano', 'actions'];
   dataSource = [];
 
   constructor(

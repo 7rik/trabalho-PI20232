@@ -16,7 +16,8 @@ const routes: Routes = [
   {
     path: 'interessados',
     component: ListarInteressesComponent,
-  }
+  },
+
 ];
 
 @NgModule({
