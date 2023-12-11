@@ -37,13 +37,14 @@ export class EditCarrosComponent {
   }
 
   public convertBase64(event: any) {
-    const file = event.target.files[0];
+    
+    const file = event.target.files[0] as Blob;
     const reader = new FileReader();
 
     reader.readAsDataURL(file);
     reader.onloadend = () => {
     console.log(this.formRegistro.value)
-    //this.formRegistro.get('foto').setValue(reader.result);
+    this.formRegistro.get('foto').setValue(reader.result);
     console.log(reader.result);
     };
 
